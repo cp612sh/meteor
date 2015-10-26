@@ -1,79 +1,114 @@
 <template name="introduction">
-<div id="introduction">
-<!-- clicking this anchor in the left bar should scroll to top of doc,
-not here -->
-<!-- XXX by: (three headshot thumbnails w names) -->
+    <div id="introduction">
+        <!-- clicking this anchor in the left bar should scroll to top of doc,
+        not here -->
+        <!-- XXX by: (three headshot thumbnails w names) -->
 
-{{#markdown}}
+        {{#markdown}}
 
-<b>_Meteor is an ultra-simple environment for building modern websites.
-What once took weeks, even with the best tools, now takes hours with
-Meteor._</b>
+            <b>_Meteor is an ultra-simple environment for building modern websites.
+                What once took weeks, even with the best tools, now takes hours with
+                Meteor._</b>
+            <b>_流星是一个超级简单的环境用来建立现代网站. 这些以前, 即使使用最好的工具, 也需要花费数周时间的, 现在通过流星只需要数个小时.
+                _</b>
 
-The web was originally designed to work in the same way that mainframes
-worked in the 70s.  The application server rendered a screen and sent it
-over the network to a dumb terminal. Whenever the user did anything,
-that server rerendered a whole new screen. This model served the Web
-well for over a decade. It gave rise to LAMP, Rails, Django, PHP.
+            The web was originally designed to work in the same way that mainframes
+            worked in the 70s. The application server rendered a screen and sent it
+            over the network to a dumb terminal. Whenever the user did anything,
+            that server rerendered a whole new screen. This model served the Web
+            well for over a decade. It gave rise to LAMP, Rails, Django, PHP.
+            在70年代, 万维网设计的初衷是像mainframe那样工作.
+            应用服务器渲染一个屏幕, 然后通过网络发送到某个无发言权的终端. 无论何时用户做了什么, 服务器都会重新渲染出一个新的屏幕. 该模式很好地为
+            万维网服务了几十年. 它让LAMP, Rails, Django, PHP有了长足的发展.
 
-But the best teams, with the biggest budgets and the longest schedules,
-now build applications in JavaScript that run on the client.  These apps
-have stellar interfaces.  They don't reload pages.  They are reactive:
-changes from any client immediately appear on everyone's screen.
+            But the best teams, with the biggest budgets and the longest schedules,
+            now build applications in JavaScript that run on the client. These apps
+            have stellar interfaces. They don't reload pages. They are reactive:
+            changes from any client immediately appear on everyone's screen.
+            但是最好的团队, 有着很好的预算以及最长期的计划, 现在使用运行在客户端的JavaScript建立应用. 这些应用具有璀璨的界面. 它们不需要重新装载页面.
+            它们是响应式的: 从任意的客户端发生的改变立即呈现在每个人的屏幕上.
 
-They've built them the hard way.  Meteor makes it an order of
-magnitude simpler, and a lot more fun.  You can build a complete
-application in a weekend, or a sufficiently caffeinated hackathon.  No
-longer do you need to provision server resources, or deploy API
-endpoints in the cloud, or manage a database, or wrangle an ORM layer,
-or swap back and forth between JavaScript and Ruby, or broadcast data
-invalidations to clients.
+            They've built them the hard way. Meteor makes it an order of
+            magnitude simpler, and a lot more fun. You can build a complete
+            application in a weekend, or a sufficiently caffeinated hackathon. No
+            longer do you need to provision server resources, or deploy API
+            endpoints in the cloud, or manage a database, or wrangle an ORM layer,
+            or swap back and forth between JavaScript and Ruby, or broadcast data
+            invalidations to clients.
+            这些团队建立这样的应用很艰苦. 流星则使得建立这类应用以一种级数级别的简单, 并且很有乐趣. 你可以在周末构建一整个应用, 或者在某个充满咖啡因的
+            黑客马拉松. 你不再需要准备服务器资源, 不需要部署云端的API端点, 不需要管理数据库, 不需要冗长的ORM层, 不需要在JavaScript和Ruby之间来回切换,
+            不要在客户端之间广播数据的无效性.
 
-Meteor is a work in progress, but we hope it shows the direction of
-our thinking.  We'd love to hear your feedback.
+            Meteor is a work in progress, but we hope it shows the direction of
+            our thinking. We'd love to hear your feedback.
+            流星仍然在开发, 但我们希望它可以展示我们思考的方向. 我们喜欢听到你的反馈.
 
-{{> quickStart}}
+            {{> quickStart}}
 
-{{> principles}}
+            {{> principles}}
 
-<h2 id="resources">Developer Resources</h2>
+            <h2 id="resources">Developer Resources 开发者资源</h2>
 
-<!-- https://github.com/blog/273-github-ribbons -->
-<a href="http://github.com/meteor/meteor"><img class="github-ribbon visible-desktop" style="position: absolute; top: 0; right: 0; border: 0;" src="/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>
+            <!-- https://github.com/blog/273-github-ribbons -->
+            <a href="http://github.com/meteor/meteor"><img class="github-ribbon visible-desktop"
+                                                           style="position: absolute; top: 0; right: 0; border: 0;"
+                                                           src="/forkme_right_red_aa0000.png"
+                                                           alt="Fork me on GitHub 从GitHub上叉俺"></a>
 
-If anything in Meteor catches your interest, we hope you'll get involved
-with the project!
+            If anything in Meteor catches your interest, we hope you'll get involved
+            with the project!
+            如果流星中的任意部分引发你的兴趣, 我们希望你能够参与到该项目中!
 
-<dl class="involved">
-<dt><span>Tutorial</span></dt>
-<dd>Get started fast with the <a href="https://www.meteor.com/install">official Meteor tutorial</a>!
-</dd>
+            <dl class="involved">
+                <dt><span>Tutorial 教程</span></dt>
+                <dd>Get started fast with the 点击此处快速开始<a href="https://www.meteor.com/install">official Meteor tutorial
+                    流星官方教程</a>!
+                </dd>
 
-<dt><span>Stack Overflow</span></dt>
-<dd>The best place to ask (and answer!) technical questions is on <a href="http://stackoverflow.com/questions/tagged/meteor">Stack
-  Overflow</a>.  Be sure to add
-  the <code>meteor</code> tag to your question.
-</dd>
+                <dt><span>Stack Overflow</span></dt>
+                <dd>The best place to ask (and answer!) technical questions is on <a
+                        href="http://stackoverflow.com/questions/tagged/meteor">Stack
+                    Overflow</a>. Be sure to add
+                    the <code>meteor</code> tag to your question.
+                </dd>
 
-<dt><span>Mailing lists</span></dt>
-<dd>
-  We have two mailing lists for Meteor.  <nobr><a href="http://groups.google.com/group/meteor-talk"><code>meteor-talk@googlegroups.com</code></a></nobr>
-  is for general questions, requests for help, and new project
-  announcements.
-  <nobr><a href="http://groups.google.com/group/meteor-core"><code>meteor-core@googlegroups.com</code></a></nobr>
-  is for coordinating changes to Meteor core packages and the build
-  tools.
-</dd>
+                <dt><span>Mailing lists 邮件列表</span></dt>
+                <dd>
+                    We have two mailing lists for Meteor.
+                    <nobr><a href="http://groups.google.com/group/meteor-talk"><code>meteor-talk@googlegroups.com</code></a>
+                    </nobr>
+                    is for general questions, requests for help, and new project
+                    announcements. 对于流星我们具有两个邮件列表.
+                    <nobr><a href="http://groups.google.com/group/meteor-talk"><code>meteor-talk@googlegroups.com</code></a>
+                    </nobr>
+                    是对于
+                    通常问题, 请求帮助, 以及新项目
+                    <nobr><a href="http://groups.google.com/group/meteor-core"><code>meteor-core@googlegroups.com</code></a>
+                    </nobr>
+                    is for coordinating changes to Meteor core packages and the build
+                    tools. 是为了协调流星核心包以及构建工具的变化的.
+                </dd>
 
-<dt><span>GitHub</span></dt>
-<dd>The core code is on <a href="http://github.com/meteor/meteor">GitHub</a>.  If you're able to write code or file issues, we'd love to have your help.  Please read <a href="https://github.com/meteor/meteor/wiki/Contributing-to-Meteor">Contributing to Meteor</a> for how to get started.
-</dd>
+                <dt><span>GitHub</span></dt>
+                <dd>The core code is on <a href="http://github.com/meteor/meteor">GitHub</a>. If you're able to write
+                    code or file issues, we'd love to have your help. Please read <a
+                            href="https://github.com/meteor/meteor/wiki/Contributing-to-Meteor">Contributing to
+                        Meteor</a> for how to get started.
+                </dd>
 
-<dt><span>The Meteor Manual</span></dt>
-<dd>In-depth articles about the core components of Meteor can be found on the <a href="http://manual.meteor.com/">Meteor Manual</a>. The first article is about <a href="http://manual.meteor.com/#tracker">Tracker</a>, our transparent reactivity framework. More articles (covering topics like Blaze, Unibuild, and DDP) are coming soon!
-</dd>
-</dl>
+                <dt><span>The Meteor Manual 流星手册</span></dt>
+                <dd>
+                    In-depth articles about the core components of Meteor can be found on the <a
+                        href="http://manual.meteor.com/">Meteor Manual</a>. The first article is about <a
+                        href="http://manual.meteor.com/#tracker">Tracker</a>, our transparent reactivity framework. More
+                    articles (covering topics like Blaze, Unibuild, and DDP) are coming soon!
+                    关于流星核心组建的深度文章可以在<a
+                        href="http://manual.meteor.com/">Meteor Manual 流星手册</a>上找到. 第一篇文章是关于<a
+                        href="http://manual.meteor.com/#tracker">Tracker</a>, 我们的透明响应式框架. 更多文章(涵盖了如 Blaze, Unibuild, 和 DDP)
+                    会陆续道来.
+                </dd>
+            </dl>
 
-{{/markdown}}
-</div>
+        {{/markdown}}
+    </div>
 </template>
