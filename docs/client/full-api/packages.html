@@ -1,33 +1,39 @@
 <template name="packages">
-{{#markdown}}
+    {{#markdown}}
 
-<h1 id="packages">Packages</h1>
+        <h1 id="packages">Packages 包</h1>
 
-Meteor supports a variety of add-on packages and third party
-libraries. While you can build great applications using only the Meteor
-core functionality, optional packages can make development even faster
-and better.
+        Meteor supports a variety of add-on packages and third party
+        libraries. While you can build great applications using only the Meteor
+        core functionality, optional packages can make development even faster
+        and better. 流星支持多样的包插件以及第三方库. 你仅通过流星核心功能就能构建伟大的应用, 但选项包可以使得开发更快, 更好.
 
-Packages can be added to a Meteor project with:
+        Packages can be added to a Meteor project with:
+        包可以通过下列命令添加到流星项目中:
 
-    $ meteor add <package_name>
+        $ meteor add
+    <package_name>
 
-and removed with:
+        and removed with:
+        通过下列命令可以移除包:
 
-    $ meteor remove <package_name>
+        $ meteor remove
+    <package_name>
 
-Some of the packages that Meteor Development Group maintains include:
-{{> pkg_appcache}}
-{{> pkg_accounts_ui}}
-{{> pkg_audit_argument_checks}}
-{{> pkg_coffeescript}}
-{{> pkg_jquery}}
-{{> pkg_less}}
-{{> pkg_markdown}}
-{{> pkg_oauth_encryption}}
-{{> pkg_random}}
-{{> pkg_underscore}}
-{{> pkg_webapp}}
+        Some of the packages that Meteor Development Group maintains include:
+        有些包是由流星开发组维护的, 包含:
 
-{{/markdown}}
+        {{> pkg_appcache}}
+        {{> pkg_accounts_ui}}
+        {{> pkg_audit_argument_checks}}
+        {{> pkg_coffeescript}}
+        {{> pkg_jquery}}
+        {{> pkg_less}}
+        {{> pkg_markdown}}
+        {{> pkg_oauth_encryption}}
+        {{> pkg_random}}
+        {{> pkg_underscore}}
+        {{> pkg_webapp}}
+
+    {{/markdown}}
 </template>

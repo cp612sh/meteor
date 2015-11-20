@@ -10,6 +10,8 @@
 prevent code from being sent to the client. Any sensitive code that you
 don't want served to the client, such as code containing passwords or
 authentication mechanisms, should be kept in the `server` directory.
+`Meteor.isServer` 可以被用来限制代码在何处运行, 但不能防止代码不被发送到客户端. 
+任何敏感的数据你不想发送到客户端, 如包含密码或验证机制的代码, 应该保存在 `server` 目录下.
 {{/note}}
 
 {{> autoApiBox "Meteor.isCordova"}}
@@ -19,6 +21,7 @@ authentication mechanisms, should be kept in the `server` directory.
 On a server, the function will run as soon as the server process is
 finished starting. On a client, the function will run as soon as the DOM
 is ready.
+
 
 The `startup` callbacks are called in the same order as the calls to
 `Meteor.startup` were made.
