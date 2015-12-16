@@ -1,32 +1,40 @@
 {{#template name="apiAccounts"}}
 
-<h2 id="accounts_api"><span>Accounts</span></h2>
+<h2 id="accounts_api"><span>Accounts 账号</span></h2>
 
 The Meteor Accounts system builds on top of the `userId` support in
-[`publish`](#publish_userId) and [`methods`](#method_userId). The core
-packages add the concept of user documents stored in the database, and
-additional packages add [secure password
-authentication](#accounts_passwords), [integration with third party
+[`publish`](#publish_userId) and [`methods`](#method_userId). 
+流星的账号系统是建立在`userId`之上的, 而`userId`则是由[`publish`](#publish_userId) 和 [`methods`](#method_userId) 支持的. 
+The core packages add the concept of user documents stored in the database, and
+additional packages add [secure password authentication](#accounts_passwords), [integration with third party
 login services](#meteor_loginwithexternalservice), and a [pre-built user
 interface](#accountsui).
+这些核心包会将用户文档的概念存储在数据库, 而其余的包则添加 [安全密码验证](#accounts_passwords), 
+[集成第三方登录验证服务](#meteor_loginwithexternalservice) 和一个[预制的用户界面](#accountsui)
 
 The basic Accounts system is in the `accounts-base` package, but
 applications typically include this automatically by adding one of the
 login provider packages: `accounts-password`, `accounts-facebook`,
 `accounts-github`, `accounts-google`, `accounts-meetup`,
 `accounts-twitter`, or `accounts-weibo`.
+基本账号系统是在 `accounts-base` 包中, 但应用通常会自动包含以下一个登录提供者包: `accounts-password`, `accounts-facebook`,
+                                                   `accounts-github`, `accounts-google`, `accounts-meetup`,
+                                                   `accounts-twitter`, 或 `accounts-weibo`.
 
 
 {{> autoApiBox "Meteor.user"}}
 
 Retrieves the user record for the current user from
 the [`Meteor.users`](#meteor_users) collection.
+从[`Meteor.users`](#meteor_users)集合中可以获得当前用户的用户记录
 
 On the client, this will be the subset of the fields in the document that
 are published from the server (other fields won't be available on the
 client). By default the server publishes `username`, `emails`, and
 `profile` (writable by user). See [`Meteor.users`](#meteor_users) for more on
 the fields used in user documents.
+在客户端, 这将会是从服务器端发布的文档中字段的子集(其余字段无法在客户端获得). 默认地, 服务器端发布 `username`, `emails`, 和 `profile`
+(用户可写). 查看[`Meteor.users`](#meteor_users)获得更多关于用户文档的字段.
 
 {{> autoApiBox "Meteor.userId"}}
 
@@ -34,6 +42,7 @@ the fields used in user documents.
 
 This collection contains one document per registered user. Here's an example
 user document:
+该集合包含每个注册用户的文档. 以下是某个用户文档的释例:
 
     {
       _id: "bbca5d6a-2156-41c4-89da-0329e8c99a4f",  // Meteor.userId()
@@ -64,13 +73,16 @@ user document:
 
 A user document can contain any data you want to store about a user. Meteor
 treats the following fields specially:
+某个用户文档能够包含任意关于某个用户的数据的存储. 流星会对以下字段特殊对待:
 
-- `username`: a unique String identifying the user.
-- `emails`: an Array of Objects with keys `address` and `verified`;
+- `username`: a unique String identifying the user. 唯一的字符串用来标示用户
+- `emails`: an Array of Objects with keys `address` and `verified`; 一个对象数组, 其中对象包含了 `address` 和 `verified` 键;
   an email address may belong to at most one user. `verified` is
   a Boolean which is true if the user has [verified the
   address](#accounts_verifyemail) with a token sent over email.
-- `createdAt`: the Date at which the user document was created.
+  一个电子邮件地址只能最多属于一个用户. `verified` 是布尔类型, 如果为true, 那么表示该用户已经[验证了地址](#accounts_verifyemail), 
+  这是通过电子邮件发送一个令牌来实现的.
+- `createdAt`: the Date at which the user document was created. 
 - `profile`: an Object which the user can create and update with any data.
   Do not store anything on `profile` that you wouldn't want the user to edit
   unless you have a deny rule on the `Meteor.users` collection.
