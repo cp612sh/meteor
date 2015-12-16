@@ -2,37 +2,18 @@
 
 <h2 id="accounts_api"><span>Accounts 账号</span></h2>
 
-The Meteor Accounts system builds on top of the `userId` support in
-[`publish`](#publish_userId) and [`methods`](#method_userId). 
 流星的账号系统是建立在`userId`之上的, 而`userId`则是由[`publish`](#publish_userId) 和 [`methods`](#method_userId) 支持的. 
-The core packages add the concept of user documents stored in the database, and
-additional packages add [secure password authentication](#accounts_passwords), [integration with third party
-login services](#meteor_loginwithexternalservice), and a [pre-built user
-interface](#accountsui).
 这些核心包会将用户文档的概念存储在数据库, 而其余的包则添加 [安全密码验证](#accounts_passwords), 
 [集成第三方登录验证服务](#meteor_loginwithexternalservice) 和一个[预制的用户界面](#accountsui)
 
-The basic Accounts system is in the `accounts-base` package, but
-applications typically include this automatically by adding one of the
-login provider packages: `accounts-password`, `accounts-facebook`,
-`accounts-github`, `accounts-google`, `accounts-meetup`,
-`accounts-twitter`, or `accounts-weibo`.
 基本账号系统是在 `accounts-base` 包中, 但应用通常会自动包含以下一个登录提供者包: `accounts-password`, `accounts-facebook`,
                                                    `accounts-github`, `accounts-google`, `accounts-meetup`,
                                                    `accounts-twitter`, 或 `accounts-weibo`.
 
-
 {{> autoApiBox "Meteor.user"}}
 
-Retrieves the user record for the current user from
-the [`Meteor.users`](#meteor_users) collection.
-从[`Meteor.users`](#meteor_users)集合中可以获得当前用户的用户记录
+从[`Meteor.users`](#meteor_users)集合中可以获得当前(登录)用户的用户记录
 
-On the client, this will be the subset of the fields in the document that
-are published from the server (other fields won't be available on the
-client). By default the server publishes `username`, `emails`, and
-`profile` (writable by user). See [`Meteor.users`](#meteor_users) for more on
-the fields used in user documents.
 在客户端, 这将会是从服务器端发布的文档中字段的子集(其余字段无法在客户端获得). 默认地, 服务器端发布 `username`, `emails`, 和 `profile`
 (用户可写). 查看[`Meteor.users`](#meteor_users)获得更多关于用户文档的字段.
 
@@ -40,8 +21,6 @@ the fields used in user documents.
 
 {{> autoApiBox "Meteor.users"}}
 
-This collection contains one document per registered user. Here's an example
-user document:
 该集合包含每个注册用户的文档. 以下是某个用户文档的释例:
 
     {
@@ -71,36 +50,32 @@ user document:
       }
     }
 
-A user document can contain any data you want to store about a user. Meteor
-treats the following fields specially:
-某个用户文档能够包含任意关于某个用户的数据的存储. 流星会对以下字段特殊对待:
+一个用户文档能够包含任意关于某个用户的数据的存储. 流星会对以下字段特殊对待:
 
-- `username`: a unique String identifying the user. 唯一的字符串用来标示用户
-- `emails`: an Array of Objects with keys `address` and `verified`; 一个对象数组, 其中对象包含了 `address` 和 `verified` 键;
-  an email address may belong to at most one user. `verified` is
-  a Boolean which is true if the user has [verified the
-  address](#accounts_verifyemail) with a token sent over email.
-  一个电子邮件地址只能最多属于一个用户. `verified` 是布尔类型, 如果为true, 那么表示该用户已经[验证了地址](#accounts_verifyemail), 
+- `username`: 唯一的字符串用来标示用户.
+- `emails`:  一个对象数组, 其中对象包含了 `address` 和 `verified` 键;
+  一个电子邮件地址只能最多属于一个用户. `verified` 是布尔类型, 如果为true, 那么表示该用户已经[验证了电子邮件地址](#accounts_verifyemail), 
   这是通过电子邮件发送一个令牌来实现的.
-- `createdAt`: the Date at which the user document was created. 
-- `profile`: an Object which the user can create and update with any data.
-  Do not store anything on `profile` that you wouldn't want the user to edit
-  unless you have a deny rule on the `Meteor.users` collection.
+- `createdAt`: 用户文档创建的日期时间.
+- `profile`: 一个该用户能够创建, 更新数据的对象. 如果你不想让用户编辑的数据, 那么不要存储在 `profile` 中, 除非你对于 `Meteor.users` 集合具有一个否定的规则.
 - `services`: an Object containing data used by particular
   login services. For example, its `reset` field contains
   tokens used by [forgot password](#accounts_forgotpassword) links,
   and its `resume` field contains tokens used to keep you
-  logged in between sessions.
+  logged in between sessions. 一个包含被特定的登录服务所使用数据的对象. 例如, 它的 `reset` 字段包含着用于 [forgot password](#accounts_forgotpassword) 链接的的令牌,
+  它的 `resume` 字段包含令牌, 可以让用户在不同的sessions中, 保持登录(状态).
 
 Like all [Mongo.Collection](#collections)s, you can access all
 documents on the server, but only those specifically published by the server are
-available on the client.
+available on the client. 
+和所有的 [Mongo.Collection](#collections) 相似, 在服务器端, 你可以访问所有的数据, 而在客户端, 只有那些被服务器端发不出来的特殊数据才能被访问. 
+
 
 By default, the current user's `username`, `emails` and `profile` are
 published to the client. You can publish additional fields for the
-current user with:
+current user with: 默认的, 现有用户的 `username`, `emails` 和 `profile` 会被发布到客户端. 也可以通过如下形式来发布额外的字段:
 
-    // server
+    // server 服务端
     Meteor.publish("userData", function () {
       if (this.userId) {
         return Meteor.users.find({_id: this.userId},
@@ -110,7 +85,7 @@ current user with:
       }
     });
 
-    // client
+    // client 客户端
     Meteor.subscribe("userData");
 
 If the autopublish package is installed, information about all users
